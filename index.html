@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Menakan Thamilchelvan | Mechatronics Engineering</title>
+<meta name="description" content="Mechatronics Engineering at McMaster University. Physical AI, robotics, embedded systems, vision systems and humanoids.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F1F1EC;--surf:#E4E4DC;--ink:#0A0B10;--mute:#505563;--line:#CDCDC3;
+  --accent:#FCEE0A;--on:#0A0B10;--hl:#B80030;--cy:#007C86;
+  --head:"Chakra Petch","Arial Narrow",Arial,sans-serif;
+  --body:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --cut:polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0A0B10;--surf:#12141C;--ink:#EDEDE6;--mute:#9A9FB0;--line:#262A38;--hl:#FCEE0A;--cy:#00E5F5;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0A0B10;--surf:#12141C;--ink:#EDEDE6;--mute:#9A9FB0;--line:#262A38;--hl:#FCEE0A;--cy:#00E5F5;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;min-height:100vh}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(128,128,160,.045) 0 1px,transparent 1px 3px);z-index:50}
+a{color:inherit;text-underline-offset:.2em;text-decoration-color:var(--line);transition:color .15s,text-decoration-color .15s}
+a:hover{color:var(--hl);text-decoration-color:var(--hl)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 clamp(1.25rem,5vw,2rem)}
+header{display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;align-items:center;padding:1.5rem 0;border-bottom:1px solid var(--line)}
+.logo{font:700 1.15rem var(--head);text-decoration:none;display:flex;align-items:center;gap:.6rem}
+.logo i{display:inline-block;width:.8rem;height:.8rem;background:var(--accent);clip-path:polygon(0 0,100% 0,100% 60%,60% 100%,0 100%)}
+nav{display:flex;flex-wrap:wrap;gap:.25rem 1.4rem;align-items:center}
+nav a{font:500 1rem var(--head);color:var(--mute);text-decoration:none;padding:.25rem 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--ink)}
+nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+#theme{font:500 .85rem var(--head);background:none;color:var(--mute);border:1px solid var(--line);padding:.2rem .7rem;cursor:pointer}
+#theme:hover{color:var(--ink);border-color:var(--cy)}
+.page{padding:clamp(2.5rem,6vw,4.5rem) 0 clamp(3rem,6vw,5rem)}
+.page[hidden]{display:none}
+h1{font:700 clamp(2.5rem,8vw,5rem)/1.02 var(--head);letter-spacing:-.02em;margin:0 0 1.25rem}
+h1.sm{font-size:clamp(2rem,5vw,3rem);margin-bottom:.75rem}
+h2{font:700 1.5rem/1.2 var(--head);margin:3rem 0 1.25rem;display:flex;align-items:center;gap:.7rem}
+h2::before{content:"";width:.55rem;height:1.2rem;background:var(--accent)}
+h3{font:600 1.25rem/1.3 var(--head);margin:0 0 .35rem}
+p{margin:0 0 1rem}.muted{color:var(--mute)}.lede{font-size:1.15rem;max-width:56ch}
+.intro{max-width:60ch;color:var(--mute);margin-bottom:2.5rem}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:2.5rem;align-items:center}
+.bar{width:5rem;height:.4rem;background:var(--accent);margin:0 0 1.5rem}
+.glitch{animation:glitch .8s steps(1) 1}
+@keyframes glitch{
+ 0%{text-shadow:3px 0 var(--cy),-3px 0 #FF2A5F;transform:translateX(-3px)}
+ 15%{text-shadow:-4px 0 var(--cy),4px 0 #FF2A5F;transform:translateX(3px)}
+ 30%{text-shadow:2px 0 var(--cy),-2px 0 #FF2A5F;transform:translateX(0)}
+ 45%{text-shadow:-2px 0 var(--cy),2px 0 #FF2A5F;transform:translateX(2px)}
+ 60%{text-shadow:1px 0 var(--cy),-1px 0 #FF2A5F;transform:none}
+ 100%{text-shadow:none;transform:none}}
+@media (prefers-reduced-motion:reduce){.glitch{animation:none}}
+.links{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.75rem}
+.btn{display:inline-block;padding:.65rem 1.3rem;font:600 1rem var(--head);text-decoration:none;clip-path:var(--cut);box-shadow:inset 0 0 0 1px var(--ink);transition:background .15s,color .15s}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.btn.solid{background:var(--accent);color:var(--on);box-shadow:none}
+.btn.solid:hover{background:var(--cy);color:var(--on)}
+.shot{display:block;width:100%;aspect-ratio:4/3;background:var(--surf);clip-path:var(--cut);overflow:hidden;object-fit:cover}
+.shot svg{width:100%;height:100%;display:block}
+.card{background:var(--surf);padding:1.5rem;clip-path:var(--cut);border-left:3px solid var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.card h3{margin-bottom:.4rem}.card p{color:var(--mute);font-size:.97rem;line-height:1.55;margin:0}
+a.card{text-decoration:none;display:block}
+a.card:hover{border-left-color:var(--cy)}a.card:hover h3{color:var(--hl)}
+.now{margin-top:3rem}
+.role{display:grid;grid-template-columns:10rem 1fr;gap:.25rem 2rem;padding:1.6rem 0;border-bottom:1px solid var(--line)}
+.role .when{color:var(--cy);font:500 .95rem var(--head)}
+.role h3{margin:0}.role .where{color:var(--mute);font-size:.97rem;margin-bottom:.75rem}
+ul.tight{margin:0;padding-left:1.1rem}ul.tight li{margin:.35rem 0;max-width:66ch}
+.proj{display:grid;grid-template-columns:1fr minmax(0,17rem);gap:1.5rem 2.5rem;padding:2rem 0;border-bottom:1px solid var(--line);align-items:start}
+.proj .meta{color:var(--cy);font:500 .92rem var(--head);margin:0 0 .4rem}
+.proj p{max-width:62ch}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin:.9rem 0 0;padding:0;list-style:none}
+.tags li{font-size:.85rem;padding:.12rem .6rem;background:var(--surf);color:var(--mute);border-left:2px solid var(--cy)}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:2rem 2.5rem;align-items:center;margin-bottom:2rem}
+.lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem;margin:1.5rem 0}
+.lab-grid h4{font:600 1.05rem var(--head);margin:0 0 .3rem}
+.soon{border:1px dashed var(--line);padding:1.25rem 1.5rem;color:var(--mute)}
+.skills{display:grid;grid-template-columns:11rem 1fr;gap:.9rem 2rem;margin:0}
+.skills dt{font-weight:600}.skills dd{margin:0;color:var(--mute)}
+.big{font:700 clamp(1.3rem,4vw,2rem) var(--head);display:block;margin:.25rem 0 1.5rem;word-break:break-word}
+footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute);font-size:.95rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem}
+@media (max-width:720px){
+ .hero,.feature,.proj{grid-template-columns:1fr}
+ .role,.skills{grid-template-columns:1fr}
+ .hero .shot{order:-1}.proj .shot{order:-1;aspect-ratio:16/9}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#home"><i></i>Menakan Thamilchelvan</a>
+    <nav aria-label="Main">
+      <a href="#home" data-p="home">Home</a>
+      <a href="#experience" data-p="experience">Experience</a>
+      <a href="#projects" data-p="projects">Projects</a>
+      <a href="#hobbies" data-p="hobbies">Hobbies</a>
+      <a href="#contact" data-p="contact">Contact</a>
+      <button id="theme" type="button" aria-label="Switch light or dark theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+  <!-- HOME -->
+  <section class="page" id="p-home">
+    <div class="hero">
+      <div>
+        <p class="muted">Mechatronics Engineering (Co-op), McMaster University</p>
+        <h1 class="glitch">Robots that see, learn and move.</h1>
+        <div class="bar"></div>
+        <p class="lede muted">I build robotic systems from the sensor to the policy: vision, embedded control and learning-based manipulation. Right now I’m working on robotic bin-picking and Physical AI at Linamar.</p>
+        <div class="links">
+          <a class="btn solid" href="#projects">See my projects</a>
+          <a class="btn" href="https://github.com/MenakanT">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/menakan-thamilchelvan/">LinkedIn</a>
+        </div>
+      </div>
+      <div class="shot" data-art="arm"></div>
+    </div>
+
+    <h2>What I focus on</h2>
+    <div class="grid">
+      <div class="card"><h3>Physical AI</h3><p>Imitation and reinforcement learning for manipulation with Diffusion Policy, LeRobot and Isaac Sim.</p></div>
+      <div class="card"><h3>Robotics</h3><p>ROS 2, simulation-to-real workflows and industrial robot cells.</p></div>
+      <div class="card"><h3>Vision systems</h3><p>2D and 3D cameras, YOLO detection and 6-DoF pose estimation.</p></div>
+      <div class="card"><h3>Embedded systems</h3><p>C/C++ firmware, real-time control loops, sensors and custom PCBs.</p></div>
+      <div class="card"><h3>Humanoids</h3><p>The long-term target for the learning, perception and manipulation work above.</p></div>
+    </div>
+
+    <h2>Explore</h2>
+    <div class="grid">
+      <a class="card" href="#experience"><h3>Experience</h3><p>Linamar, Skyjack and McMaster Formula Electric.</p></a>
+      <a class="card" href="#projects"><h3>Projects</h3><p>Bin-picking, digital twins, imitation learning and more.</p></a>
+      <a class="card" href="#hobbies"><h3>Hobbies</h3><p>My homelab and other things I build for fun.</p></a>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="page" id="p-experience" hidden>
+    <h1 class="sm">Experience</h1>
+    <p class="intro">Co-op terms and team work across robotics, automation and testing.</p>
+    <div class="role">
+      <div class="when">Sep 2026 – Present</div>
+      <div>
+        <h3>AI / Software Engineer Co-op</h3>
+        <p class="where">Linamar Corporation, Robotics &amp; Automation · Guelph, ON</p>
+        <ul class="tight">
+          <li>Developing robotic bin-picking cells with industrial 2D/3D depth cameras and fine-tuned YOLO models for real-time part localization and 6-DoF pose estimation.</li>
+          <li>Built digital twins in NVIDIA Isaac Sim with realistic sensor noise and contact physics for reinforcement learning.</li>
+          <li>Architected Copilot AI agents for controls workflows, cutting PLC and robot telemetry logging and diagnostic scripting time by 35%.</li>
+          <li>Prototyped imitation learning pipelines (Diffusion Policy, LeRobot) with multi-modal teleoperation datasets.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role">
+      <div class="when">Jan 2026 – Aug 2026</div>
+      <div>
+        <h3>Design and Validation Engineer Co-op</h3>
+        <p class="where">Skyjack Inc. · Guelph, ON</p>
+        <ul class="tight">
+          <li>Ran duty-cycle testing on 4+ mobile aerial platforms with the eDAQ-lite, analyzing 50+ GB of strain, pressure and cycle data.</li>
+          <li>Wrote Excel VBA macros that automated data processing and entry, saving about 5 hours per week.</li>
+          <li>Managed the Testing and Validation Master Schedule across 15+ concurrent test phases.</li>
+          <li>Validated GNSS RTK sensors to under 2 cm accuracy across 30+ field trials and integrated them with eDAQ-lite systems.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="role">
+      <div class="when">Feb 2025 – Present</div>
+      <div>
+        <h3>Low Voltage and Wire Harness Sub-team</h3>
+        <p class="where">McMaster Formula Electric · Hamilton, ON</p>
+        <ul class="tight">
+          <li>Designed low-voltage harness assemblies, verified continuity and maintained wiring diagrams and the BOM.</li>
+          <li>Designed a 2-layer LED driver PCB in Altium Designer.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Technical skills</h2>
+    <dl class="skills">
+      <dt>Languages &amp; frameworks</dt><dd>C/C++, Python, ROS 2 (Humble), PyTorch, OpenCV, VBA</dd>
+      <dt>Robotics &amp; Physical AI</dt><dd>NVIDIA Isaac Sim, digital twins, reinforcement learning, Diffusion Policy, LeRobot, YOLO11</dd>
+      <dt>Hardware &amp; embedded</dt><dd>Industrial 2D/3D cameras, ESP32, eDAQ-lite DAQ, CAN bus, GNSS RTK, MPU6050 IMU, Altium Designer</dd>
+      <dt>Tools</dt><dd>Linux (Ubuntu), Git, Docker, SolidWorks, Autodesk Inventor, MATLAB, LaTeX, 3D printing, soldering, harness crimping</dd>
+    </dl>
+
+    <h2>Education</h2>
+    <h3>McMaster University</h3>
+    <p>Bachelor of Engineering in Mechatronics Engineering (Co-op), GPA 3.7</p>
+    <p class="muted">Sep 2023 – Apr 2028 · Data Structures &amp; Algorithms, Embedded Systems, Dynamic Systems &amp; Control, Signals &amp; Systems</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="page" id="p-projects" hidden>
+    <h1 class="sm">Projects</h1>
+    <p class="intro">Robotics, vision and embedded work from co-ops, my team and my own bench.</p>
+
+    <article class="proj">
+      <div>
+        <p class="meta">Linamar · 2026</p>
+        <h3>Robotic bin-picking cell</h3>
+        <p>An in-house cell that finds parts in a bin and works out how to grasp them. Industrial 2D/3D depth cameras feed fine-tuned YOLO models, which output real-time localization and 6-DoF pose estimates.</p>
+        <ul class="tags"><li>YOLO</li><li>6-DoF pose</li><li>3D cameras</li><li>Python</li></ul>
+      </div>
+      <div class="shot" data-art="vision"></div>
+    </article>
+    <article class="proj">
+      <div>
+        <p class="meta">Linamar · 2026</p>
+        <h3>Isaac Sim digital twin for RL</h3>
+        <p>A high-fidelity simulation of the bin-picking cell with photorealistic sensor noise and physics-based contact dynamics, used to train reinforcement learning policies.</p>
+        <ul class="tags"><li>NVIDIA Isaac Sim</li><li>Reinforcement learning</li><li>Digital twin</li></ul>
+      </div>
+      <div class="shot" data-art="sim"></div>
+    </article>
+    <article class="proj">
+      <div>
+        <p class="meta">Linamar · 2026</p>
+        <h3>Imitation learning pipelines</h3>
+        <p>Prototypes for collecting multi-modal teleoperation datasets and benchmarking adaptive manipulation in high-mix environments.</p>
+        <ul class="tags"><li>Diffusion Policy</li><li>LeRobot</li><li>Teleoperation</li><li>PyTorch</li></ul>
+      </div>
+      <div class="shot" data-art="arm"></div>
+    </article>
+    <article class="proj">
+      <div>
+        <p class="meta">Personal project</p>
+        <h3>Two-axis smartphone gimbal</h3>
+        <p>A custom stabilizer that cut visible shake by 60% in walking tests. An ESP32 reads an MPU6050 and runs a 200 Hz PID loop with under 10 ms end-to-end latency. The printed frame weighs under 250 g and costs under $5 in material, and a custom battery pack and buck-boost converter give over 3 hours of use.</p>
+        <ul class="tags"><li>C++</li><li>ESP32</li><li>PID control</li><li>Inventor</li><li>SolidWorks</li></ul>
+      </div>
+      <div class="shot" data-art="gimbal"></div>
+    </article>
+    <article class="proj">
+      <div>
+        <p class="meta">McMaster Formula Electric · 2025</p>
+        <h3>LED driver PCB</h3>
+        <p>A 2-layer board designed in Altium Designer. I minimized high-current switching loops and return paths to suppress EMI under a 1.5 A peak load.</p>
+        <ul class="tags"><li>Altium Designer</li><li>PCB design</li><li>EMI</li></ul>
+      </div>
+      <div class="shot" data-art="chip"></div>
+    </article>
+  </section>
+
+  <!-- HOBBIES -->
+  <section class="page" id="p-hobbies" hidden>
+    <h1 class="sm">Hobbies</h1>
+    <p class="intro">Things I build and tinker with outside of work and school.</p>
+
+    <h2>Homelab</h2>
+    <div class="feature">
+      <div>
+        <h3>Automated media server and private cloud</h3>
+        <p class="muted">A containerized, automated media pipeline and services dashboard running on WSL2 and Ubuntu, reachable from my desktop and phone through an encrypted Tailscale mesh.</p>
+        <ul class="tags"><li>Docker Compose</li><li>WSL2</li><li>Ubuntu</li><li>Tailscale</li><li>WireGuard</li><li>iptables</li><li>Jellyfin</li><li>REST APIs</li></ul>
+      </div>
+      <div class="shot" data-art="net"></div>
+    </div>
+    <div class="lab-grid">
+      <div class="card"><h4>Container orchestration</h4><p>Docker Compose runs Jellyfin, qBittorrent, Sonarr, Radarr, Prowlarr, Overseerr, FlareSolverr and a Homepage status dashboard. Shared volume mappings keep data persistent across rebuilds, and hardlinks avoid extra disk I/O.</p></div>
+      <div class="card"><h4>WSL2 networking</h4><p>Fixed packet drops, MTU blackholing and mobile TCP stalls by moving WSL2 from NAT to mirrored networking, then opened the right host firewall ports for container traffic.</p></div>
+      <div class="card"><h4>Linux troubleshooting</h4><p>Switched packet filtering from nftables to iptables-legacy to stop Docker bridge failures and daemon crashes on boot.</p></div>
+      <div class="card"><h4>Secure remote access</h4><p>Tailscale (WireGuard) with MagicDNS gives access from any network, with no port forwarding, dynamic DNS or public attack surface.</p></div>
+      <div class="card"><h4>Automated retrieval</h4><p>Prowlarr aggregates indexers into the download queues, and FlareSolverr handles Cloudflare challenges that block automated API calls.</p></div>
+    </div>
+    <p class="soon">More hobbies and side builds will be added here.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" id="p-contact" hidden>
+    <h1 class="sm">Contact</h1>
+    <p class="intro">Open to robotics, Physical AI and embedded roles. Email is the fastest way to reach me.</p>
+    <a class="big" href="mailto:menakan.thamil@gmail.com">menakan.thamil@gmail.com</a>
+    <div class="links">
+      <a class="btn solid" href="https://github.com/MenakanT">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/menakan-thamilchelvan/">LinkedIn</a>
+      <a class="btn" id="resume" href="#" target="_blank" rel="noopener" hidden>Resume (PDF)</a>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <span>Menakan Thamilchelvan · Toronto, Ontario</span>
+    <span><a href="https://github.com/MenakanT">GitHub</a> &nbsp; <a href="https://www.linkedin.com/in/menakan-thamilchelvan/">LinkedIn</a></span>
+  </footer>
+</div>
+
+<script>
+// Paste the public link to your resume PDF here. The Resume button appears once this is set.
+const RESUME_URL = "";
+
+const pages = ["home","experience","projects","hobbies","contact"];
+const titles = {home:"Home",experience:"Experience",projects:"Projects",hobbies:"Hobbies",contact:"Contact"};
+function show(){
+  const h = location.hash.slice(1);
+  const id = pages.includes(h) ? h : "home";
+  pages.forEach(p => document.getElementById("p-"+p).hidden = p !== id);
+  document.querySelectorAll("nav a").forEach(a => a.toggleAttribute("aria-current", false) || (a.dataset.p === id && a.setAttribute("aria-current","page")));
+  document.title = (id === "home" ? "" : titles[id] + " | ") + "Menakan Thamilchelvan";
+  window.scrollTo(0,0);
+}
+window.addEventListener("hashchange", show);
+
+if (RESUME_URL) { const r = document.getElementById("resume"); r.href = RESUME_URL; r.hidden = false; }
+
+document.getElementById("theme").addEventListener("click", () => {
+  const root = document.documentElement;
+  const cur = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  root.dataset.theme = cur === "dark" ? "light" : "dark";
+});
+
+// Generic placeholder art. Replace any <div class="shot" data-art="..."> with <img class="shot" src="..." alt="...">
+let n = 0;
+const S = {
+ arm:'<rect x="70" y="244" width="120" height="14" fill="var(--mute)"/><path d="M130 244V190L240 120L310 150" stroke="var(--hl)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g fill="var(--bg)" stroke="var(--cy)" stroke-width="4"><circle cx="130" cy="190" r="12"/><circle cx="240" cy="120" r="12"/></g><path d="M310 150l16 22M310 150l-6 26" stroke="var(--cy)" stroke-width="5" stroke-linecap="round"/>',
+ vision:'<rect x="60" y="50" width="280" height="200" fill="none" stroke="var(--mute)" stroke-width="3"/><g fill="var(--mute)"><rect x="90" y="90" width="50" height="26" transform="rotate(-18 115 103)"/><rect x="190" y="130" width="56" height="26" transform="rotate(24 218 143)"/><rect x="120" y="180" width="48" height="24" transform="rotate(8 144 192)"/><rect x="270" y="80" width="40" height="22" transform="rotate(40 290 91)"/></g><g fill="none" stroke="var(--cy)" stroke-width="2.5"><rect x="80" y="72" width="70" height="62"/><rect x="180" y="110" width="76" height="66"/><rect x="262" y="62" width="58" height="60" stroke="var(--hl)"/></g>',
+ sim:'<path d="M40 260L160 150H300L380 260Z" fill="none" stroke="var(--cy)" stroke-width="2"/><path d="M100 260L190 150M160 260L225 150M220 260L260 150M280 260L295 150M60 220H355M85 190H335M110 165H320" stroke="var(--cy)" stroke-width="1.5" opacity=".6"/><path d="M180 140l40-20 40 20-40 20zM180 140v40l40 20v-40M260 140v40l-40 20" fill="none" stroke="var(--hl)" stroke-width="3" stroke-linejoin="round"/>',
+ chip:'<rect x="130" y="90" width="140" height="120" fill="var(--bg)" stroke="var(--hl)" stroke-width="4"/><path d="M150 90V60H60M190 90V50M230 90V70H340M150 210v30H80M200 210v40M250 210v30h90M130 130H80v30H40M270 150h50v40h40" fill="none" stroke="var(--cy)" stroke-width="3"/><g fill="var(--hl)"><circle cx="60" cy="60" r="5"/><circle cx="190" cy="50" r="5"/><circle cx="340" cy="70" r="5"/><circle cx="40" cy="160" r="5"/><circle cx="360" cy="190" r="5"/></g>',
+ gimbal:'<g fill="none" stroke-width="3"><circle cx="200" cy="150" r="100" stroke="var(--cy)"/><circle cx="200" cy="150" r="68" stroke="var(--hl)"/><rect x="172" y="100" width="56" height="100" rx="8" fill="var(--bg)" stroke="var(--ink)"/></g><circle cx="200" cy="150" r="6" fill="var(--hl)"/>',
+ net:'<path d="M200 150L90 80M200 150L320 70M200 150L100 230M200 150L310 225M90 80L100 230M320 70L310 225" stroke="var(--cy)" stroke-width="2.5"/><g fill="var(--bg)" stroke="var(--hl)" stroke-width="4"><circle cx="200" cy="150" r="24"/><circle cx="90" cy="80" r="14"/><circle cx="320" cy="70" r="14"/><circle cx="100" cy="230" r="14"/><circle cx="310" cy="225" r="14"/></g>'
+};
+document.querySelectorAll("[data-art]").forEach(el => {
+  const id = "g" + (n++);
+  el.innerHTML = '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Placeholder illustration"><defs><pattern id="'+id+'" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" fill="none" stroke="var(--line)"/></pattern></defs><rect width="400" height="300" fill="var(--surf)"/><rect width="400" height="300" fill="url(#'+id+')"/>'+S[el.dataset.art]+'</svg>';
+});
+show();
+</script>
+</body>
+</html>
