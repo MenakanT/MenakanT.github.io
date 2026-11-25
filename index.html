@@ -83,8 +83,10 @@ ul.tight{margin:0;padding-left:1.1rem}ul.tight li{margin:.35rem 0;max-width:66ch
 .tags li{font-size:.85rem;padding:.12rem .6rem;background:var(--surf);color:var(--mute);border-left:2px solid var(--cy)}
 .proj .links{margin-top:1.1rem;gap:.6rem}
 .proj .btn{padding:.45rem 1rem;font-size:.92rem}
-.proj .role-note{margin:.9rem 0 0;font-size:.97rem}
+.proj .role-note{margin:.9rem 0 .3rem;font-size:.97rem}
 .proj .role-note b{color:var(--ink)}
+.proj .role-list{color:var(--mute);font-size:.97rem}
+.proj .role-list li{margin:.15rem 0}
 a.shot{position:relative}
 a.shot img{width:100%;height:100%;object-fit:cover;display:block}
 a.shot .play{position:absolute;left:50%;top:50%;width:3.6rem;height:3.6rem;margin:-1.8rem 0 0 -1.8rem;background:var(--accent);clip-path:polygon(28% 18%,82% 50%,28% 82%);transition:background .15s}
@@ -148,7 +150,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
     <h2>Explore</h2>
     <div class="grid">
       <a class="card" href="#experience"><h3>Experience</h3><p>Linamar, Skyjack and McMaster Formula Electric.</p></a>
-      <a class="card" href="#projects"><h3>Projects</h3><p>Bin-picking, digital twins, imitation learning, a hackathon safety hat and more.</p></a>
+      <a class="card" href="#projects"><h3>Projects</h3><p>A hackathon safety hat, a smartphone gimbal, PCB design and more.</p></a>
       <a class="card" href="#hobbies"><h3>Hobbies</h3><p>My homelab and other things I build for fun.</p></a>
     </div>
   </section>
@@ -219,7 +221,13 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         <p class="meta">Hack Western 13 · QNX track · 2026</p>
         <h3>Super Safety Hat</h3>
         <p>A construction hard hat with a rear-facing camera and a microphone that watches and listens behind the wearer. Two TensorFlow Lite models run on a Raspberry Pi 5 running QNX Neutrino 8.0: YAMNet classifies sounds like horns, sirens, reversing beepers and shouts, and EfficientDet-Lite0 detects people and vehicles. A tracker estimates time to contact and spots a person falling. Audio and vision are fused into spoken warnings like “Horn and truck behind you on your left, about 2 seconds away,” and every detection feeds a site-wide dashboard on Tiger Cloud (TimescaleDB).</p>
-        <p class="role-note muted"><b>My role:</b> I was the main programmer and owned everything on the Raspberry Pi. That meant bringing up the QNX image, getting the TFLite runtime and both models running on-device, capturing frames from the USB webcam through the QNX camera service, and building the detection, tracking and alert pipeline, plus the SSH link that streams audio in and alerts out to the laptop companion.</p>
+        <p class="role-note muted"><b>My role:</b> Main programmer and Raspberry Pi lead. Some of what I worked on:</p>
+        <ul class="tight role-list">
+          <li>Running both AI models on the Pi under QNX</li>
+          <li>Webcam capture through the QNX camera service</li>
+          <li>Detection, tracking and alert logic</li>
+          <li>The SSH link between the Pi and the laptop</li>
+        </ul>
         <ul class="tags"><li>Python</li><li>Raspberry Pi 5</li><li>QNX</li><li>TensorFlow Lite</li><li>YAMNet</li><li>EfficientDet</li><li>TimescaleDB</li></ul>
         <div class="links">
           <a class="btn solid" href="https://devpost.com/software/super-safety-hat" target="_blank" rel="noopener">Devpost</a>
@@ -228,33 +236,6 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         </div>
       </div>
       <a class="shot" href="https://www.youtube.com/watch?v=xk0N_-TmEuw" target="_blank" rel="noopener" aria-label="Watch the Super Safety Hat demo video on YouTube"><img src="https://img.youtube.com/vi/xk0N_-TmEuw/hqdefault.jpg" alt="Super Safety Hat demo video thumbnail" loading="lazy"><span class="play"></span></a>
-    </article>
-    <article class="proj">
-      <div>
-        <p class="meta">Linamar · 2026</p>
-        <h3>Robotic bin-picking cell</h3>
-        <p>An in-house cell that finds parts in a bin and works out how to grasp them. Industrial 2D/3D depth cameras feed fine-tuned YOLO models, which output real-time localization and 6-DoF pose estimates.</p>
-        <ul class="tags"><li>YOLO</li><li>6-DoF pose</li><li>3D cameras</li><li>Python</li></ul>
-      </div>
-      <div class="shot" data-art="vision"></div>
-    </article>
-    <article class="proj">
-      <div>
-        <p class="meta">Linamar · 2026</p>
-        <h3>Isaac Sim digital twin for RL</h3>
-        <p>A high-fidelity simulation of the bin-picking cell with photorealistic sensor noise and physics-based contact dynamics, used to train reinforcement learning policies.</p>
-        <ul class="tags"><li>NVIDIA Isaac Sim</li><li>Reinforcement learning</li><li>Digital twin</li></ul>
-      </div>
-      <div class="shot" data-art="sim"></div>
-    </article>
-    <article class="proj">
-      <div>
-        <p class="meta">Linamar · 2026</p>
-        <h3>Imitation learning pipelines</h3>
-        <p>Prototypes for collecting multi-modal teleoperation datasets and benchmarking adaptive manipulation in high-mix environments.</p>
-        <ul class="tags"><li>Diffusion Policy</li><li>LeRobot</li><li>Teleoperation</li><li>PyTorch</li></ul>
-      </div>
-      <div class="shot" data-art="arm"></div>
     </article>
     <article class="proj">
       <div>
@@ -284,18 +265,18 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
     <h2>Homelab</h2>
     <div class="feature">
       <div>
-        <h3>Automated media server and private cloud</h3>
-        <p class="muted">A containerized, automated media pipeline and services dashboard running on WSL2 and Ubuntu, reachable from my desktop and phone through an encrypted Tailscale mesh.</p>
-        <ul class="tags"><li>Docker Compose</li><li>WSL2</li><li>Ubuntu</li><li>Tailscale</li><li>WireGuard</li><li>iptables</li><li>Jellyfin</li><li>REST APIs</li></ul>
+        <h3>Self-hosted media server and private cloud</h3>
+        <p class="muted">A containerized media server and services dashboard running on WSL2 and Ubuntu. It streams my personal media library to my desktop, TV and phone, and stays private behind an encrypted Tailscale mesh.</p>
+        <ul class="tags"><li>Docker Compose</li><li>WSL2</li><li>Ubuntu</li><li>Tailscale</li><li>WireGuard</li><li>iptables</li><li>Jellyfin</li></ul>
       </div>
       <div class="shot" data-art="net"></div>
     </div>
     <div class="lab-grid">
-      <div class="card"><h4>Container orchestration</h4><p>Docker Compose runs Jellyfin, qBittorrent, Sonarr, Radarr, Prowlarr, Overseerr, FlareSolverr and a Homepage status dashboard. Shared volume mappings keep data persistent across rebuilds, and hardlinks avoid extra disk I/O.</p></div>
+      <div class="card"><h4>Media hosting</h4><p>Jellyfin organizes my library of movies, shows and music and streams it to any device on my network or tailnet, like a personal streaming service.</p></div>
+      <div class="card"><h4>Container orchestration</h4><p>Docker Compose runs Jellyfin alongside a Homepage status dashboard. Shared volume mappings keep configuration and media persistent across container rebuilds.</p></div>
       <div class="card"><h4>WSL2 networking</h4><p>Fixed packet drops, MTU blackholing and mobile TCP stalls by moving WSL2 from NAT to mirrored networking, then opened the right host firewall ports for container traffic.</p></div>
       <div class="card"><h4>Linux troubleshooting</h4><p>Switched packet filtering from nftables to iptables-legacy to stop Docker bridge failures and daemon crashes on boot.</p></div>
       <div class="card"><h4>Secure remote access</h4><p>Tailscale (WireGuard) with MagicDNS gives access from any network, with no port forwarding, dynamic DNS or public attack surface.</p></div>
-      <div class="card"><h4>Automated retrieval</h4><p>Prowlarr aggregates indexers into the download queues, and FlareSolverr handles Cloudflare challenges that block automated API calls.</p></div>
     </div>
     <p class="soon">More hobbies and side builds will be added here.</p>
   </section>
