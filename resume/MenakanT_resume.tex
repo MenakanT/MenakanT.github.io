@@ -1,0 +1,196 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\enlargethispage{10pt} % borrow a few points of bottom margin so everything fits on one page
+
+%----------HEADING----------
+% This file is public on GitHub: keep the phone number out of it.
+
+\begin{center}
+    \textbf{\Huge \scshape Menakan Thamilchelvan} \\ \vspace{1pt}
+    \small \href{mailto:menakan.thamil@gmail.com}{\underline{menakan.thamil@gmail.com}} $|$
+    \href{https://linkedin.com/in/menakan-thamilchelvan}{\underline{linkedin.com/in/menakan-thamilchelvan}} $|$
+    \href{https://menakant.github.io}{\underline{menakant.github.io}}
+\end{center}
+
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {McMaster University}{Hamilton, Ontario}
+      {Bachelor of Engineering in Mechatronics Engineering (CO-OP), GPA: 3.7}{Sep. 2023 -- Apr. 2028}
+      \vspace{-2pt}
+      \item \small{\textbf{Coursework:} Data Structures \& Algorithms, Embedded Systems, Dynamic Systems \& Control, Signals \& Systems}
+  \resumeSubHeadingListEnd
+
+
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Linamar Corporation (Robotics \& Automation)}{Sep. 2026 -- Present}
+      {AI / Software Engineer Co-op}{Guelph, Ontario}
+      \resumeItemListStart
+        \resumeItem{Developing and deploying in-house \textbf{robotic bin-picking cells}, integrating industrial 2D/3D depth cameras and fine-tuned \textbf{YOLO object detection} models to execute real-time part localization and 6-DoF pose estimation.}
+        \resumeItem{Constructed high-fidelity digital twin environments in \textbf{NVIDIA Isaac Sim} to simulate bin-picking cells, photorealistic sensor noise, and physics-based contact dynamics for \textbf{reinforcement learning} policy training.}
+        \resumeItem{Architected custom \textbf{Copilot AI agents} to automate controls engineering workflows, reducing routine PLC/robot telemetry logging and diagnostic scripting time by 35\%.}
+        \resumeItem{Prototyped \textbf{Physical AI and imitation learning pipelines} (Diffusion Policy, LeRobot) to collect multi-modal teleoperation datasets and benchmark adaptive robotic manipulation in high-mix environments.}
+      \resumeItemListEnd
+
+
+\resumeSubheading
+      {Skyjack Inc.}{Jan. 2026 -- Aug. 2026}
+      {Design and Validation Engineer Co-Op}{Guelph, Ontario}
+      \resumeItemListStart
+        \resumeItem{Conducted evaluation and duty-cycle testing across \textbf{4+ mobile aerial platforms} using the \textbf{eDAQ-lite DAQ}, analyzing over \textbf{50+ GB} of multi-channel strain, pressure, and cycle test data.}
+        \resumeItem{\textbf{Automated test data processing} and database entry by developing custom \textbf{Excel VBA macros}, reducing recurring engineering workload by \textbf{1 hour/day ($\sim$5 hours/week)} and eliminating manual transcription errors.}
+        \resumeItem{Managed the Testing and Validation \textbf{Master Schedule}, tracking \textbf{15+ concurrent machine test phases} and coordinating with cross-functional teams to achieve on-time launch milestones.}
+        \resumeItem{Validated high-precision \textbf{GNSS RTK sensors} achieving \textbf{$<$2 cm positioning accuracy} across \textbf{30+ field trials}; integrated feeds with eDAQ-lite systems to preserve telemetry in RF-obstructed industrial environments.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+    {McMaster Formula Electric}{Feb. 2025 -- Present}
+    {Low Voltage and Wire Harness Sub-team Member}{Hamilton, Ontario}
+  \resumeItemListStart
+    \resumeItem{Placed components and routed the car's \textbf{2-layer brake light LED driver PCB} in \textbf{Altium Designer}; minimized high-current switching loops and return paths to suppress EMI under a 1.5A peak load.}
+    \resumeItem{Designed and crimped\textbf{ low-voltage harness assemblies} and verified continuity; maintained wiring diagrams and BOM.}
+
+  \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+  %-----------PROJECTS--1---------
+\section{Projects}
+\resumeSubHeadingListStart
+
+  \resumeProjectHeading
+    {\textbf{Super Safety Hat} $|$ \emph{Python, Raspberry Pi 5, QNX, TensorFlow Lite}}{\small Hack Western 13, Nov. 2026}
+    \resumeItemListStart
+      \resumeItem{Main programmer and Pi lead for a hard hat that spots hazards behind the wearer; ran \textbf{YAMNet} and \textbf{EfficientDet-Lite0} on a \textbf{Raspberry Pi 5 under QNX} at $\sim$6 ms per audio window and $\sim$55 ms per frame.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Vision Target Tracker} $|$ \emph{Python, OpenCV, YOLO11, Roboflow}}{}
+    \resumeItemListStart
+      \resumeItem{Trained a custom \textbf{YOLO11n} model; \textbf{OpenCV} pipeline outputs each object's class, confidence and centroid.}
+    \resumeItemListEnd
+
+  \resumeProjectHeading
+    {\textbf{Custom Smartphone Gimbal for Stabilization} $|$ \emph{Inventor, ESP32, 3D Printing, C++}}{}
+    \resumeItemListStart
+      \resumeItem{Built a two-axis smartphone gimbal that reduced visible shake by 60\% in walking tests; C++ firmware integrates an \textbf{MPU6050 with an ESP32} in a 200 Hz PID loop with under 10 ms end-to-end latency.}
+      \resumeItem{SolidWorks printable frame under 250 g and \$5; custom battery pack and buck-boost converter for 3+ hours of use.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Languages \& Frameworks:} C/C++, Python, ROS 2 (Humble), PyTorch, OpenCV, Visual Basic (VBA) \\
+    \textbf{Robotics \& Physical AI:} Isaac Sim, Digital Twins, Reinforcement Learning, Diffusion Policy, LeRobot, YOLO11 \\
+    \textbf{Hardware \& Embedded:} Industrial 2D/3D Cameras, ESP32, Raspberry Pi, QNX, eDAQ-lite DAQ, CAN Bus, GNSS RTK, MPU6050 IMU, Altium Designer \\
+    \textbf{Software \& Lab Tools:} Linux, Git, SolidWorks, Inventor, MATLAB, LaTeX, 3D Printing, Harness Crimping, Soldering
+  }}
+\end{itemize}
+
+%-------------------------------------------
+\end{document}
