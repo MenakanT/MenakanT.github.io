@@ -4,7 +4,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Menakan Thamilchelvan | Mechatronics Engineering</title>
-<meta name="description" content="Mechatronics Engineering at McMaster University. Physical AI, robotics, embedded systems, vision systems and humanoids.">
+<meta name="description" content="Mechatronics Engineering student at McMaster University building robots, vision systems and embedded hardware. Seeking a Summer 2027 co-op.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://menakant.github.io/">
+<meta property="og:title" content="Menakan Thamilchelvan | Mechatronics Engineering">
+<meta property="og:description" content="Robotics, vision and embedded systems. Mechatronics Engineering at McMaster University, seeking a Summer 2027 co-op.">
+<meta property="og:image" content="https://menakant.github.io/images/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -25,7 +34,7 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--body);-webkit-font-smoothing:antialiased;min-height:100vh}
-body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(128,128,160,.045) 0 1px,transparent 1px 3px);z-index:50}
+body::after{content:"";position:fixed;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(128,128,160,.02) 0 1px,transparent 1px 3px);z-index:50}
 a{color:inherit;text-underline-offset:.2em;text-decoration-color:var(--line);transition:color .15s,text-decoration-color .15s}
 a:hover{color:var(--hl);text-decoration-color:var(--hl)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--cy);outline-offset:3px}
@@ -91,6 +100,22 @@ a.shot{position:relative}
 a.shot img{width:100%;height:100%;object-fit:cover;display:block}
 a.shot .play{position:absolute;left:50%;top:50%;width:3.6rem;height:3.6rem;margin:-1.8rem 0 0 -1.8rem;background:var(--accent);clip-path:polygon(28% 18%,82% 50%,28% 82%);transition:background .15s}
 a.shot:hover .play{background:var(--cy)}
+.shot.tall{aspect-ratio:3/4}
+.shot.fit,.shot.fit img{object-fit:contain;background:#D3D3D3}
+video.shot{object-fit:cover}
+.hero video.shot{aspect-ratio:16/9}
+.avail{display:inline-flex;align-items:center;gap:.55rem;font:500 .95rem var(--head);color:var(--ink);border:1px solid var(--line);padding:.3rem .8rem;margin:0 0 1.25rem}
+.avail i{width:.55rem;height:.55rem;border-radius:50%;background:#1FB85A;box-shadow:0 0 0 3px rgba(31,184,90,.2)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem}
+a.feat{display:block;text-decoration:none;background:var(--surf);clip-path:var(--cut);border-bottom:3px solid var(--accent)}
+a.feat:hover{border-bottom-color:var(--cy)}a.feat:hover h3{color:var(--hl)}
+a.feat img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+a.feat img.fit{object-fit:contain;background:#D3D3D3}
+a.feat div{padding:1rem 1.25rem 1.25rem}
+a.feat .meta{color:var(--cy);font:500 .88rem var(--head);margin:0 0 .3rem}
+a.feat p{color:var(--mute);font-size:.95rem;line-height:1.5;margin:0}
+.more{margin-top:1.25rem}
+@media print{body::after{display:none}}
 .feature{display:grid;grid-template-columns:1fr 1fr;gap:2rem 2.5rem;align-items:center;margin-bottom:2rem}
 .lab-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.25rem;margin:1.5rem 0}
 .lab-grid h4{font:600 1.05rem var(--head);margin:0 0 .3rem}
@@ -102,7 +127,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
 @media (max-width:720px){
  .hero,.feature,.proj{grid-template-columns:1fr}
  .role,.skills{grid-template-columns:1fr}
- .hero .shot{order:-1}.proj .shot{order:-1;aspect-ratio:16/9}
+ .hero .shot{order:-1}.proj .shot{order:-1;aspect-ratio:16/9}.proj .shot.tall{aspect-ratio:4/3}
 }
 </style>
 </head>
@@ -125,34 +150,38 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
   <section class="page" id="p-home">
     <div class="hero">
       <div>
-        <p class="muted">Mechatronics Engineering (Co-op), McMaster University</p>
+        <p class="avail"><i></i>Seeking a Summer 2027 co-op</p>
+        <p class="muted">Mechatronics Engineering (Co-op), McMaster University · Graduating April 2028</p>
         <h1 class="glitch">Robots that see, learn and move.</h1>
         <div class="bar"></div>
-        <p class="lede muted">I build robotic systems from the sensor to the policy: vision, embedded control and learning-based manipulation. Right now I’m working on robotic bin-picking and Physical AI at Linamar.</p>
+        <p class="lede muted">I build robotic systems from the sensor to the policy: vision, embedded control and learning-based manipulation. I’m currently a robotics and AI co-op at Linamar, and at home I’m building an SO-101 arm for imitation learning.</p>
         <div class="links">
           <a class="btn solid" href="#projects">See my projects</a>
+          <a class="btn" href="MenakanT_resume.pdf" target="_blank" rel="noopener">Resume</a>
           <a class="btn" href="https://github.com/MenakanT">GitHub</a>
           <a class="btn" href="https://www.linkedin.com/in/menakan-thamilchelvan/">LinkedIn</a>
         </div>
       </div>
-      <div class="shot" data-art="arm"></div>
+      <video class="shot" autoplay muted loop playsinline poster="images/vision-tracker.jpg" aria-label="Object detection demo: a keyboard, mice and a pen tracked on a desk"><source src="images/vision-tracker.mp4" type="video/mp4"></video>
     </div>
+
+    <h2>Featured projects</h2>
+    <div class="feat-grid">
+      <a class="feat" href="#projects"><img src="images/safety-hat.jpg" alt="Hard hat with a rear-facing webcam and a Raspberry Pi mounted on top" loading="lazy" style="object-position:50% 60%"><div><p class="meta">Hack Western 13</p><h3>Super Safety Hat</h3><p>A hard hat that watches and listens behind the wearer, with two AI models running on a Raspberry Pi.</p></div></a>
+      <a class="feat" href="#projects"><img src="images/vision-tracker.jpg" alt="Desk objects detected with bounding boxes and centroids" loading="lazy"><div><p class="meta">Personal project</p><h3>Vision target tracker</h3><p>YOLO11 detection and centroid localization, the first step toward robotic grasping.</p></div></a>
+      <a class="feat" href="#projects"><img class="fit" src="images/brake-light-pcb.png" alt="Brake light PCB layout in Altium Designer" loading="lazy"><div><p class="meta">McMaster Formula Electric</p><h3>Brake light PCB</h3><p>Component placement and routing for the team car’s 2-layer brake light board.</p></div></a>
+    </div>
+    <p class="more"><a class="btn" href="#projects">All projects</a></p>
 
     <h2>What I focus on</h2>
     <div class="grid">
-      <div class="card"><h3>Physical AI</h3><p>Imitation and reinforcement learning for manipulation with Diffusion Policy, LeRobot and Isaac Sim.</p></div>
+      <div class="card"><h3>Physical AI</h3><p>Imitation learning with LeRobot on my SO-101 arm, plus Physical AI work at Linamar.</p></div>
       <div class="card"><h3>Robotics</h3><p>ROS 2, simulation-to-real workflows and industrial robot cells.</p></div>
-      <div class="card"><h3>Vision systems</h3><p>2D and 3D cameras, YOLO detection and 6-DoF pose estimation.</p></div>
-      <div class="card"><h3>Embedded systems</h3><p>C/C++ firmware, real-time control loops, sensors and custom PCBs.</p></div>
+      <div class="card"><h3>Vision systems</h3><p>YOLO detection, tracking and centroid localization, from desk objects to an on-device safety hat.</p></div>
+      <div class="card"><h3>Embedded systems</h3><p>ESP32 control loops, edge AI on a Raspberry Pi and PCB layout for Formula Electric.</p></div>
       <div class="card"><h3>Humanoids</h3><p>The long-term target for the learning, perception and manipulation work above.</p></div>
     </div>
 
-    <h2>Explore</h2>
-    <div class="grid">
-      <a class="card" href="#experience"><h3>Experience</h3><p>Linamar, Skyjack and McMaster Formula Electric.</p></a>
-      <a class="card" href="#projects"><h3>Projects</h3><p>A hackathon safety hat, an SO-101 robot arm, a smartphone gimbal and more.</p></a>
-      <a class="card" href="#hobbies"><h3>Hobbies</h3><p>My homelab and other things I build for fun.</p></a>
-    </div>
   </section>
 
   <!-- EXPERIENCE -->
@@ -192,7 +221,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         <p class="where">McMaster Formula Electric · Hamilton, ON</p>
         <ul class="tight">
           <li>Designed low-voltage harness assemblies, verified continuity and maintained wiring diagrams and the BOM.</li>
-          <li>Designed a 2-layer LED driver PCB in Altium Designer.</li>
+          <li>Did the component placement and routing for the car’s 2-layer brake light PCB in Altium Designer.</li>
         </ul>
       </div>
     </div>
@@ -221,6 +250,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         <p class="meta">Hack Western 13 · QNX track · 2026</p>
         <h3>Super Safety Hat</h3>
         <p>A construction hard hat with a rear-facing camera and a microphone that watches and listens behind the wearer. Two TensorFlow Lite models run on a Raspberry Pi 5 running QNX Neutrino 8.0: YAMNet classifies sounds like horns, sirens, reversing beepers and shouts, and EfficientDet-Lite0 detects people and vehicles. A tracker estimates time to contact and spots a person falling. Audio and vision are fused into spoken warnings like “Horn and truck behind you on your left, about 2 seconds away,” and every detection feeds a site-wide dashboard on Tiger Cloud (TimescaleDB).</p>
+        <p class="role-note muted"><b>Results:</b> All inference runs on the hat with no network needed. Sound classification takes about 6 ms per window and object detection about 55 ms per frame on the Pi 5.</p>
         <p class="role-note muted"><b>My role:</b> Main programmer and Raspberry Pi lead. Some of what I worked on:</p>
         <ul class="tight role-list">
           <li>Running both AI models on the Pi under QNX</li>
@@ -235,7 +265,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
           <a class="btn" href="https://www.youtube.com/watch?v=xk0N_-TmEuw" target="_blank" rel="noopener">Demo video</a>
         </div>
       </div>
-      <a class="shot" href="https://www.youtube.com/watch?v=xk0N_-TmEuw" target="_blank" rel="noopener" aria-label="Watch the Super Safety Hat demo video on YouTube"><img src="https://img.youtube.com/vi/xk0N_-TmEuw/hqdefault.jpg" alt="Super Safety Hat demo video thumbnail" loading="lazy"><span class="play"></span></a>
+      <a class="shot tall" href="https://www.youtube.com/watch?v=xk0N_-TmEuw" target="_blank" rel="noopener" aria-label="Watch the Super Safety Hat demo video on YouTube"><img src="images/safety-hat.jpg" alt="Hard hat with a rear-facing webcam and a Raspberry Pi mounted on top" loading="lazy"><span class="play"></span></a>
     </article>
     <article class="proj">
       <div>
@@ -245,6 +275,18 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         <ul class="tags"><li>LeRobot</li><li>Imitation learning</li><li>Python</li><li>Teleoperation</li><li>3D printing</li></ul>
       </div>
       <div class="shot" data-art="arm"></div>
+    </article>
+    <article class="proj">
+      <div>
+        <p class="meta">Personal project · 2026</p>
+        <h3>Vision target tracker</h3>
+        <p>A detection pipeline that finds objects in video and outputs each one’s class, confidence and pixel centroid (u, v), the first step toward robotic grasping and visual servoing. I sampled frames from my own footage, labelled them and trained a YOLO11n model in Roboflow, then wrote an OpenCV pipeline that runs every frame through it and draws boxes, labels and centroids.</p>
+        <ul class="tags"><li>Python</li><li>OpenCV</li><li>YOLO11</li><li>Roboflow</li></ul>
+        <div class="links">
+          <a class="btn" href="https://github.com/MenakanT/vision-target-tracker" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+      <video class="shot" autoplay muted loop playsinline preload="none" poster="images/vision-tracker.jpg" aria-label="Keyboard, mice and a pen detected on a desk with bounding boxes and centroids"><source src="images/vision-tracker.mp4" type="video/mp4"></video>
     </article>
     <article class="proj">
       <div>
@@ -261,11 +303,12 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
     <article class="proj">
       <div>
         <p class="meta">McMaster Formula Electric · 2025</p>
-        <h3>LED driver PCB</h3>
-        <p>A 2-layer board designed in Altium Designer. I minimized high-current switching loops and return paths to suppress EMI under a 1.5 A peak load.</p>
-        <ul class="tags"><li>Altium Designer</li><li>PCB design</li><li>EMI</li></ul>
+        <h3>Brake light PCB</h3>
+        <p>The brake light for the team’s Formula Electric car: a 2-layer board designed in Altium Designer, with 20 LEDs in a triangular layout and an onboard LED driver running from 24 V.</p>
+        <p class="role-note muted"><b>My role:</b> Component placement and wiring. I kept the driver’s high-current switching loops and return paths tight to suppress EMI under a 1.5 A peak load.</p>
+        <ul class="tags"><li>Altium Designer</li><li>PCB layout</li><li>LED driver</li><li>EMI</li></ul>
       </div>
-      <div class="shot" data-art="chip"></div>
+      <img class="shot fit" src="images/brake-light-pcb.png" alt="Triangular brake light PCB layout in Altium Designer with 20 LED pads and the MAC Formula Electric logo" loading="lazy">
     </article>
   </section>
 
@@ -296,7 +339,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
   <!-- CONTACT -->
   <section class="page" id="p-contact" hidden>
     <h1 class="sm">Contact</h1>
-    <p class="intro">Open to robotics, Physical AI and embedded roles. Email is the fastest way to reach me.</p>
+    <p class="intro">Seeking a Summer 2027 co-op in robotics, Physical AI or embedded systems. Email is the fastest way to reach me.</p>
     <a class="big" href="mailto:menakan.thamil@gmail.com">menakan.thamil@gmail.com</a>
     <div class="links">
       <a class="btn solid" href="https://github.com/MenakanT">GitHub</a>
@@ -314,7 +357,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
 
 <script>
 // Paste the public link to your resume PDF here. The Resume button appears once this is set.
-const RESUME_URL = "";
+const RESUME_URL = "MenakanT_resume.pdf";
 
 const pages = ["home","experience","projects","hobbies","contact"];
 const titles = {home:"Home",experience:"Experience",projects:"Projects",hobbies:"Hobbies",contact:"Contact"};
@@ -340,9 +383,6 @@ document.getElementById("theme").addEventListener("click", () => {
 let n = 0;
 const S = {
  arm:'<rect x="70" y="244" width="120" height="14" fill="var(--mute)"/><path d="M130 244V190L240 120L310 150" stroke="var(--hl)" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round"/><g fill="var(--bg)" stroke="var(--cy)" stroke-width="4"><circle cx="130" cy="190" r="12"/><circle cx="240" cy="120" r="12"/></g><path d="M310 150l16 22M310 150l-6 26" stroke="var(--cy)" stroke-width="5" stroke-linecap="round"/>',
- vision:'<rect x="60" y="50" width="280" height="200" fill="none" stroke="var(--mute)" stroke-width="3"/><g fill="var(--mute)"><rect x="90" y="90" width="50" height="26" transform="rotate(-18 115 103)"/><rect x="190" y="130" width="56" height="26" transform="rotate(24 218 143)"/><rect x="120" y="180" width="48" height="24" transform="rotate(8 144 192)"/><rect x="270" y="80" width="40" height="22" transform="rotate(40 290 91)"/></g><g fill="none" stroke="var(--cy)" stroke-width="2.5"><rect x="80" y="72" width="70" height="62"/><rect x="180" y="110" width="76" height="66"/><rect x="262" y="62" width="58" height="60" stroke="var(--hl)"/></g>',
- sim:'<path d="M40 260L160 150H300L380 260Z" fill="none" stroke="var(--cy)" stroke-width="2"/><path d="M100 260L190 150M160 260L225 150M220 260L260 150M280 260L295 150M60 220H355M85 190H335M110 165H320" stroke="var(--cy)" stroke-width="1.5" opacity=".6"/><path d="M180 140l40-20 40 20-40 20zM180 140v40l40 20v-40M260 140v40l-40 20" fill="none" stroke="var(--hl)" stroke-width="3" stroke-linejoin="round"/>',
- chip:'<rect x="130" y="90" width="140" height="120" fill="var(--bg)" stroke="var(--hl)" stroke-width="4"/><path d="M150 90V60H60M190 90V50M230 90V70H340M150 210v30H80M200 210v40M250 210v30h90M130 130H80v30H40M270 150h50v40h40" fill="none" stroke="var(--cy)" stroke-width="3"/><g fill="var(--hl)"><circle cx="60" cy="60" r="5"/><circle cx="190" cy="50" r="5"/><circle cx="340" cy="70" r="5"/><circle cx="40" cy="160" r="5"/><circle cx="360" cy="190" r="5"/></g>',
  gimbal:'<g fill="none" stroke-width="3"><circle cx="200" cy="150" r="100" stroke="var(--cy)"/><circle cx="200" cy="150" r="68" stroke="var(--hl)"/><rect x="172" y="100" width="56" height="100" rx="8" fill="var(--bg)" stroke="var(--ink)"/></g><circle cx="200" cy="150" r="6" fill="var(--hl)"/>',
  net:'<path d="M200 150L90 80M200 150L320 70M200 150L100 230M200 150L310 225M90 80L100 230M320 70L310 225" stroke="var(--cy)" stroke-width="2.5"/><g fill="var(--bg)" stroke="var(--hl)" stroke-width="4"><circle cx="200" cy="150" r="24"/><circle cx="90" cy="80" r="14"/><circle cx="320" cy="70" r="14"/><circle cx="100" cy="230" r="14"/><circle cx="310" cy="225" r="14"/></g>'
 };
