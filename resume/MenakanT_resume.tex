@@ -126,13 +126,14 @@
 \section{Experience}
   \resumeSubHeadingListStart
     \resumeSubheading
-      {Linamar Corporation (Robotics \& Automation)}{Sep. 2026 -- Present}
-      {AI / Software Engineer Co-op}{Guelph, Ontario}
+      {Linamar Innovation Hub}{Sep. 2026 -- Present}
+      {AI Software Engineering Co-op}{Guelph, Ontario}
       \resumeItemListStart
-        \resumeItem{Developing and deploying in-house \textbf{robotic bin-picking cells}, integrating industrial 2D/3D depth cameras and fine-tuned \textbf{YOLO object detection} models to execute real-time part localization and 6-DoF pose estimation.}
-        \resumeItem{Constructed high-fidelity digital twin environments in \textbf{NVIDIA Isaac Sim} to simulate bin-picking cells, photorealistic sensor noise, and physics-based contact dynamics for \textbf{reinforcement learning} policy training.}
-        \resumeItem{Architected custom \textbf{Copilot AI agents} to automate controls engineering workflows, reducing routine PLC/robot telemetry logging and diagnostic scripting time by 35\%.}
-        \resumeItem{Prototyped \textbf{Physical AI and imitation learning pipelines} (Diffusion Policy, LeRobot) to collect multi-modal teleoperation datasets and benchmark adaptive robotic manipulation in high-mix environments.}
+        \resumeItem{Built a physics-based ring-placement environment in \textbf{Isaac Sim/Isaac Lab} (UR20, Robotiq 2F-85, measured fixtures) and trained policies with \textbf{RSL-RL PPO} across \textbf{256 parallel GPU environments}.}
+        \resumeItem{Designed the observation and action spaces, reward function, IK controller and \textbf{domain randomization} (pose, friction, mass, actuation delay), raising simulated placement success to \textbf{$\sim$95.4\%} (peaks of $\sim$98.4\%).}
+        \resumeItem{Built placement diagnostics that exposed off-centre fixture entries, a key \textbf{sim-to-real} risk.}
+        \resumeItem{Built a teleoperation workflow to record and filter \textbf{LeRobot} demonstrations for \textbf{ACT} imitation learning.}
+        \resumeItem{Designed \textbf{Copilot Studio agents} for drawing tolerance/DFM review and machine troubleshooting, and built a robotics opportunity tracker standardizing robot-application data across \textbf{87 plants}.}
       \resumeItemListEnd
 
 
@@ -185,10 +186,10 @@
 \section{Technical Skills}
 \begin{itemize}[leftmargin=0.15in, label={}]
   \small{\item{
-    \textbf{Languages \& Frameworks:} C/C++, Python, ROS 2 (Humble), PyTorch, OpenCV, Visual Basic (VBA) \\
-    \textbf{Robotics \& Physical AI:} Isaac Sim, Digital Twins, Reinforcement Learning, Diffusion Policy, LeRobot, YOLO11 \\
-    \textbf{Hardware \& Embedded:} Industrial 2D/3D Cameras, ESP32, Raspberry Pi, QNX, eDAQ-lite DAQ, CAN Bus, GNSS RTK, MPU6050 IMU, Altium Designer \\
-    \textbf{Software \& Lab Tools:} Linux, Git, SolidWorks, Inventor, MATLAB, LaTeX, 3D Printing, Harness Crimping, Soldering
+    \textbf{Languages \& Frameworks:} C/C++, Python, JavaScript, PowerShell, ROS 2 (Humble), PyTorch, OpenCV, VBA \\
+    \textbf{Robotics \& Physical AI:} Isaac Sim/Lab, RL (PPO, RSL-RL), Domain Randomization, LeRobot, ACT, YOLO11 \\
+    \textbf{Hardware \& Embedded:} ESP32, Raspberry Pi, QNX, eDAQ-lite, CAN Bus, GNSS RTK, MPU6050, Altium Designer \\
+    \textbf{Software \& Lab Tools:} Linux, Git, Copilot Studio, SolidWorks, Inventor, MATLAB, LaTeX, 3D Printing, Soldering
   }}
 \end{itemize}
 
