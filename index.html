@@ -194,7 +194,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
         <h3>AI Software Engineering Co-op</h3>
         <p class="where">Linamar Innovation Hub · Guelph, ON</p>
         <ul class="tight">
-          <li>Built a physics-based robotic ring-placement environment in NVIDIA Isaac Sim, Isaac Lab and PhysX with a UR20 robot, Robotiq 2F-85 gripper, conveyor, guarding and measured fixture geometry (18.05 mm prongs, about 1.2 mm radial clearance).</li>
+          <li>Built a physics-based robotic ring-placement environment in NVIDIA Isaac Sim, Isaac Lab and PhysX with a UR20 robot, Robotiq 2F-85 gripper, conveyor, guarding and measured fixture geometry.</li>
           <li>Trained manipulation policies with RSL-RL PPO across 256 parallel GPU environments, designing the observation and action spaces, reward function, IK controller and gripper-release logic. Simulated placement success reached about 95.4% over the final 10 iterations, peaking near 98.4%.</li>
           <li>Added domain randomization (grasp pose, ring tilt, pallet pose, observation error, actuation delay, friction, mass) and placement diagnostics that showed policies entering fixtures several millimetres off-centre, a sim-to-real risk I then investigated.</li>
           <li>Built a teleoperation-to-autonomy workflow: leader/follower control, demonstration recording and episode-quality filtering of a LeRobot dataset to prepare ACT imitation-learning policies.</li>
