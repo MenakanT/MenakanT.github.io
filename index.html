@@ -103,6 +103,7 @@ a.shot:hover .play{background:var(--cy)}
 .shot.tall{aspect-ratio:3/4}
 .shot.fit,.shot.fit img{object-fit:contain;background:#D3D3D3}
 video.shot{object-fit:cover}
+.clip{margin:0}.clip figcaption{font:500 .85rem var(--head);color:var(--mute);margin-top:.5rem}
 .hero video.shot{aspect-ratio:16/9}
 .avail{display:inline-flex;align-items:center;gap:.55rem;font:500 .95rem var(--head);color:var(--ink);border:1px solid var(--line);padding:.3rem .8rem;margin:0 0 1.25rem}
 .avail i{width:.55rem;height:.55rem;border-radius:50%;background:#1FB85A;box-shadow:0 0 0 3px rgba(31,184,90,.2)}
@@ -126,7 +127,7 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
 @media (max-width:720px){
  .hero,.feature,.proj{grid-template-columns:1fr}
  .role,.skills{grid-template-columns:1fr}
- .hero .shot{order:-1}.proj .shot{order:-1;aspect-ratio:16/9}.proj .shot.tall{aspect-ratio:4/3}
+ .hero .shot{order:-1}.proj .shot{order:-1;aspect-ratio:16/9}.proj .shot.tall{aspect-ratio:4/3}.proj .clip{order:-1}.proj .clip .shot.tall{aspect-ratio:3/4}
 }
 </style>
 </head>
@@ -273,10 +274,13 @@ footer{border-top:1px solid var(--line);padding:1.75rem 0 3rem;color:var(--mute)
       <div>
         <p class="meta">Personal project · In progress</p>
         <h3>SO-101 robot arm</h3>
-        <p>Building a leader-follower pair of SO-101 open-source robot arms. I’m assembling the 3D-printed arms, calibrating the servos and setting up teleoperation, then collecting demonstrations to train imitation learning policies with LeRobot.</p>
+        <p>Building a leader-follower pair of SO-101 open-source robot arms. Teleoperation is working: moving the leader arm by hand drives the follower, as in the clip. Next I’m collecting demonstrations to train imitation learning policies with LeRobot.</p>
         <ul class="tags"><li>LeRobot</li><li>Imitation learning</li><li>Python</li><li>Teleoperation</li><li>3D printing</li></ul>
       </div>
-      <div class="shot" data-art="arm"></div>
+      <figure class="clip">
+        <video class="shot tall" autoplay muted loop playsinline preload="none" poster="images/so101-teleop.jpg" aria-label="Teleoperating the SO-101 follower arm with the leader arm"><source src="images/so101-teleop.mp4" type="video/mp4"></video>
+        <figcaption>Teleoperation demo · work in progress</figcaption>
+      </figure>
     </article>
     <article class="proj">
       <div>
